@@ -1,0 +1,22 @@
+<?php
+$name = $_POST['name'];
+$visitor_email = $_POST['email'];
+$phone = $_POST['phone'];
+$country = $_POST['country'];
+
+$email_form = 'abc@gmail.com';
+$email_subject = 'New form submission';
+
+$email_body = "User name: $name.\n" .
+              "User email: $visitor_email.\n" .
+              "Phone number: $phone.\n" .
+              "Country preference: $country.\n";
+
+$to = 'xyz@gmail.com';
+$headers = "From: $email_form \r\n";
+$headers .= "Reply-To: $visitor_email \r\n";
+
+mail($to, $email_subject, $email_body, $headers);
+
+header("Location: contact.html");
+?>
